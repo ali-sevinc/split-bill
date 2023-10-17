@@ -2,7 +2,7 @@
 
 Project idea from "Jonas Schmedtmann's The Ultimate React Course"
 
-build with:
+built with:
 
 - ReactJS
 - Typescript
