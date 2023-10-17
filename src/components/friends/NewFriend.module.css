@@ -1,0 +1,21 @@
+.newFriend {
+  margin-top: 1rem;
+  padding: 8px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+}
+.group {
+  display: flex;
+}
+.group label {
+  display: inline-block;
+  width: 5rem;
+}
+.group input {
+  width: 100%;
+}
