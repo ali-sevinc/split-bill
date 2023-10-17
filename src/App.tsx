@@ -74,7 +74,11 @@ function App() {
         onSelectFriend={handleSelectFriend}
       />
       {selectedFriend !== null && (
-        <Bill selectedFriend={selectedFriend} onCalculate={handleCalculate} />
+        <Bill
+          selectedFriend={selectedFriend}
+          onCalculate={handleCalculate}
+          key={selectedFriend?.id}
+        />
       )}
     </main>
   );

@@ -19,7 +19,7 @@ interface PropsType {
 function Bill({ selectedFriend, onCalculate }: PropsType) {
   const [totalAmount, setTotalAmount] = useState<string | number>("");
   const [yourAmount, setYourAmount] = useState<string | number>("");
-  const [friendAmount, setFriendAmount] = useState<string | number>("");
+  const friendAmount = Number(totalAmount) - Number(yourAmount);
   const [whoPay, setWhoPay] = useState<string>("you");
 
   function handleSubmit(event: FormEvent) {
@@ -35,13 +35,11 @@ function Bill({ selectedFriend, onCalculate }: PropsType) {
     onCalculate({ amount: calculated, id: selectedFriend?.id });
     setTotalAmount("");
     setYourAmount("");
-    setFriendAmount("");
   }
 
   function handleYourAmount(event: ChangeEvent<HTMLInputElement>) {
     if (Number(event.target.value) > Number(totalAmount)) return;
     setYourAmount(Number(event.target.value));
-    setFriendAmount(Number(totalAmount) - Number(event.target.value));
   }
 
   return (
@@ -69,13 +67,7 @@ function Bill({ selectedFriend, onCalculate }: PropsType) {
         </div>
         <div className={styles.group}>
           <label htmlFor="friend">{selectedFriend?.name}'s Amount</label>
-          <input
-            disabled
-            value={friendAmount}
-            onChange={(e) => setFriendAmount(e.target.value)}
-            type="number"
-            id="friend"
-          />
+          <input disabled value={friendAmount} type="number" id="friend" />
         </div>
         <div className={styles.group}>
           <label htmlFor="who-pay">Who Pay the bill</label>
